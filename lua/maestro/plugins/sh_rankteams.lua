@@ -15,7 +15,6 @@ if SERVER then
             i = i + 1
         until not team.Valid(i)
         for rank, color in pairs(rankteams) do
-            print(rank, i)
             team.SetUp(i, rank, color, false)
             teams[rank] = i
             i = i + 1
@@ -52,7 +51,6 @@ if CLIENT then
         local i = net.ReadUInt(16)
         local rank = net.ReadString()
         local color = net.ReadTable()
-        print(i, rank, color)
         team.SetUp(i, rank, color, false)
         team.SetColor(i, color)
     end)
